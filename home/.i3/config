@@ -161,7 +161,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute s
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioStop exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -169,5 +169,12 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+t [class="Xfce4-terminal"] focus
 bindsym $mod+p [class="Atom"] focus
 
+# Focus
+focus_follows_mouse no
+
 # Startup
 exec dropbox start
+
+# Lock
+bindsym $mod+End exec "~/.i3/lock.sh"
+exec xautolock -time 15 -locker '~/.i3/lock.sh' &
