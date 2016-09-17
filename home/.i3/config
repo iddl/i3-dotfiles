@@ -178,3 +178,4 @@ exec dropbox start
 # Lock
 bindsym $mod+End exec "~/.i3/lock.sh"
 exec xautolock -time 15 -locker '~/.i3/lock.sh' &
+exec --no-startup-id nm-applet
