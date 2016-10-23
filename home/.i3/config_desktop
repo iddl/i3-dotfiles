@@ -153,8 +153,7 @@ bar {
         status_command ~/.i3/my_i3status.sh
 }
 
-# Additional stuff
-
+# Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
@@ -168,6 +167,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # Workspace shortcuts
 bindsym $mod+t [class="Xfce4-terminal"] focus
 bindsym $mod+p [class="Atom"] focus
+
+# Screenshots
+bindsym Ctrl+Shift+4 exec shutter -s
 
 # Focus
 focus_follows_mouse no
