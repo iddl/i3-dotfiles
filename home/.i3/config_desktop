@@ -169,7 +169,8 @@ bindsym $mod+t [class="Xfce4-terminal"] focus
 bindsym $mod+p [class="Atom"] focus
 
 # Screenshots
-bindsym Ctrl+Shift+4 exec shutter -s
+# -s for cursor to select screen, -e for exit after taking screen
+bindsym Ctrl+Shift+4 exec shutter -s -e -o ~/Dropbox/Screenshots/linux/$(date +"%y%m%d-%H%M%S").png && thunar ~/Dropbox/Screenshots/linux
 
 # Focus
 focus_follows_mouse no
