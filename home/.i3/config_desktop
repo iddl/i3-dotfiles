@@ -170,7 +170,7 @@ bindsym $mod+p [class="Atom"] focus
 
 # Screenshots
 # -s for cursor to select screen, -e for exit after taking screen
-bindsym Ctrl+Shift+4 exec shutter -s -e -o ~/Dropbox/Screenshots/linux/$(date +"%y%m%d-%H%M%S").png && thunar ~/Dropbox/Screenshots/linux
+bindsym Ctrl+Shift+4 exec "~/.i3/screenshot.sh"
 
 # Focus
 focus_follows_mouse no
