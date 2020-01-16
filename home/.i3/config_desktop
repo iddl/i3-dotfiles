@@ -177,6 +177,7 @@ focus_follows_mouse no
 
 # Startup
 exec dropbox start
+exec xrandr --output DP-4 --rotate left --pos 5120x0 --output DP-2 --pos 2560x768 --output DP-0 --pos 0x768
 
 # Lock
 bindsym $mod+End exec "~/.i3/lock.sh"
