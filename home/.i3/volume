@@ -1,0 +1,45 @@
+#!/usr/bin/python3
+
+import argparse
+import subprocess
+import re
+
+
+def change_vol(amount, sink):
+    amount = f"+{amount}%" if amount >= 0 else f"{amount}%"
+    subprocess.run(["pactl", "set-sink-volume", sink, amount], stdout=subprocess.PIPE)
+
+
+def toggle_mute(sink):
+    subprocess.run(["pactl", "set-sink-mute", sink, "toggle"], stdout=subprocess.PIPE)
+
+
+def get_sink():
+    result = subprocess.run(["pactl", "list", "sinks"], stdout=subprocess.PIPE)
+    stdout = result.stdout.decode("utf-8")
+    device = re.findall("#([0-9]+)\n\tState: RUNNING", stdout)
+    if not device:
+        return None
+    return device[0]
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Process some integers.")
+    parser.add_argument(
+        "amount",
+        metavar="N",
+        type=int,
+        nargs="+",
+        help="an integer for the accumulator",
+    )
+    args = parser.parse_args()
+    amount = args.amount[0]
+    sink = get_sink()
+
+    if amount == 0:
+        toggle_mute(sink)
+    else:
+        change_vol(amount, sink)
+
+
+main()
