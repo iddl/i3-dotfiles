@@ -5,7 +5,7 @@ import subprocess
 import re
 from collections import namedtuple
 
-Device = namedtuple("Device", ["id", "state"])
+Device = namedtuple("Device", ["id", "state", "name"])
 
 
 def change_vol(amount, sink):
@@ -21,16 +21,20 @@ def get_sink():
     result = subprocess.run(["pactl", "list", "sinks"], stdout=subprocess.PIPE)
     stdout = result.stdout.decode("utf-8")
     devices = [
-        Device(d[0], d[1])
-        for d in re.findall("#([0-9]+)\n\tState: (RUNNING|SUSPENDED)", stdout)
+        Device(d[0], d[1], d[2])
+        for d in re.findall("#([0-9]+)\n\tState: (RUNNING|SUSPENDED)\n\tName: ([^\s+]+)", stdout)
     ]
+    print(devices)
     # Prefer RUNNING devices
     running = [d for d in devices if d.state == "RUNNING"]
     if running:
         return running[0].id
+    analog = [d for d in devices if "analog" in d.name]
+    if analog:
+        return analog[0].id
     # Return the first SUSPENDED otherwise
     if devices:
-        devices[0].id
+        return devices[0].id
     return None
 
 
@@ -49,6 +53,7 @@ def main():
 
     if not sink:
         print("Couldn't find sink")
+        return
 
     if amount == 0:
         toggle_mute(sink)
