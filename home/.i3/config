@@ -164,10 +164,6 @@ bindsym XF86AudioStop exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Workspace shortcuts
-bindsym $mod+t [class="Xfce4-terminal"] focus
-bindsym $mod+p [class="Atom"] focus
-
 # Screenshots
 # -s for cursor to select screen, -e for exit after taking screen
 bindsym Ctrl+Shift+4 exec "~/.i3/screenshot.sh"
