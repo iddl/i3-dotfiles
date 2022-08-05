@@ -3,7 +3,7 @@ Compositing & background
 - compton (transparency)
 - nitrogen (background)
 
-Remap mouse to pgdown events
+Remap mouse to pg-up/down events
 
 - xbindkeys
 - xautomation
