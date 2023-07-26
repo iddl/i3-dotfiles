@@ -194,7 +194,7 @@ exec --no-startup-id compton
 
 # Mousemappings
 exec xbindkeys
-exec xinput --set-prop "pointer:Razer Razer Viper 8KHz" "Coordinate Transformation Matrix" 0.35 0 0 0 0.35 0 0 0 1
+exec xinput --set-prop "pointer:Razer Razer Viper 8KHz" "Coordinate Transformation Matrix" 0.30 0 0 0 0.30 0 0 0 1
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #ff0000
