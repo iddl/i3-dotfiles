@@ -174,7 +174,6 @@ focus_follows_mouse no
 # Startup
 exec insync start
 exec /opt/Synergy/synergy-service
-# exec xfce4-power-manager
 # exec xrandr --output DP-4 --rotate left --pos 5120x0 --output DP-2 --pos 2560x768 --output DP-0 --pos 0x768
 
 # Lock
